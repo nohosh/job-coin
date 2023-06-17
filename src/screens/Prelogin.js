@@ -1,23 +1,47 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 function Prelogin({ loginUser }) {
 	const [input, setInput] = useState('');
+	const inputRef = useRef();
 	const handleLogin = () => {
 		if (input === '') return;
 		loginUser(input);
 	};
+
+	useEffect(() => {
+		inputRef.current.focus();
+	}, []);
+
 	return (
-		<div>
-			<input
-				type="text"
-				value={input}
-				onChange={(e) => {
-					setInput(e.target.value);
-				}}
-				placeholder="what's the address.."
-			/>
-			<button onClick={handleLogin}>login</button>
-		</div>
+		<main>
+			<span>
+				{input.length > 0 ? (
+					<>
+						press
+						<span onClick={handleLogin} className="key">
+							⏎
+						</span>
+						to Login
+					</>
+				) : (
+					<>enter your ADDRESS</>
+				)}
+			</span>
+			<h1>Welcome to JOBCOIN</h1>
+			<div>
+				<input
+					type="password"
+					value={input}
+					onChange={(e) => {
+						setInput(e.target.value);
+					}}
+					onKeyUp={(e) => {
+						e.key === 'Enter' && handleLogin();
+					}}
+					ref={inputRef}
+				/>
+			</div>
+		</main>
 	);
 }
 
