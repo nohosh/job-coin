@@ -18,7 +18,7 @@ function Prelogin({ loginUser }) {
 				{input.length > 0 ? (
 					<>
 						press
-						<span onClick={handleLogin} className="key">
+						<span onClick={handleLogin} className="key-enter">
 							⏎
 						</span>
 						to Login
@@ -30,6 +30,7 @@ function Prelogin({ loginUser }) {
 			<h1>Welcome to JOBCOIN</h1>
 			<div>
 				<input
+					placeholder="Address"
 					type="password"
 					value={input}
 					onChange={(e) => {
