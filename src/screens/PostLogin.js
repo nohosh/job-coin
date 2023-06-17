@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Chart from '../components/Chart';
 
 function PostLogin({ data, logout, transaction }) {
 	const [control, setControl] = useState(null);
@@ -13,6 +14,7 @@ function PostLogin({ data, logout, transaction }) {
 		return () => {
 			window.removeEventListener('keydown', handleKey);
 		};
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	const KeyControl = () => {
@@ -82,7 +84,7 @@ function PostLogin({ data, logout, transaction }) {
 						<p>no transations yet</p>
 					) : (
 						<>
-							chart here <pre>{JSON.stringify(data, null, 2)}</pre>
+							<Chart data={data} />
 						</>
 					)}
 				</>
@@ -102,7 +104,7 @@ function PostLogin({ data, logout, transaction }) {
 			<h4>
 				Balance: <b>{data.balance} </b>🪙
 			</h4>
-			<div className="control-panel">
+			<div>
 				<button onClick={() => setControl('T')}>TRANSACTIONS</button>
 				<button onClick={() => setControl('P')}>PAY</button>
 				<button onClick={() => setControl('G')}>STATS</button>

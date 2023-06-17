@@ -161,21 +161,24 @@ button:hover {
 }
 
 button {
-	margin: 4px;
+	margin: 6px;
+	padding: 8px;
 }
 
-.pay:hover {
+.button-transaction:hover {
 	background-color: crimson;
 }
 
-.pay {
+.button-transaction {
 	background-color: #00f428;
 }
 
 ul {
 	list-style: none;
 }
-
+ul li {
+	cursor: default;
+}
 li.red {
 	color: crimson;
 }
