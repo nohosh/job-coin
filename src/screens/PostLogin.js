@@ -102,7 +102,8 @@ function PostLogin({ data, logout, transaction }) {
 			</span>
 			<h1>Welcome {data.name}</h1>
 			<h4>
-				Balance: <b>{data.balance} </b>🪙
+				Balance: <b>{data.balance} </b>
+				<h1 className="spin">🪙</h1>
 			</h4>
 			<div>
 				<button onClick={() => setControl('T')}>TRANSACTIONS</button>
